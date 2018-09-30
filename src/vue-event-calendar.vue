@@ -63,8 +63,8 @@ export default {
       } else {
         return {
           options: {
-            locale: 'en', //zh
-            color: ' #f29543'
+            locale: 'pl',
+            color: '#85D3F9'
           },
           params: {
               curYear: dateObj.getFullYear(),
@@ -141,7 +141,7 @@ export default {
 }
 </script>
 <style lang="less">
-@base-orange: #f29543;
+@base-blue: #85D3F9;
 @white: #ffffff;
 @gray: #e0e0e0;
 @gray-dark: #b1b1b1;
@@ -162,7 +162,7 @@ export default {
     }
     .events-wrapper{
       width: 50%;
-      background-color: @base-orange;
+      background-color: @base-blue;
       color: @white;
       padding: 40px 45px;
       position: absolute;
@@ -275,12 +275,12 @@ export default {
           }
           &.selected-day{
             .is-event{
-              background-color: @base-orange;
+              background-color: @base-blue;
             }
           }
           .is-event{
             content: '';
-            border: 1px solid @base-orange;
+            border: 1px solid @base-blue;
             background-color: #fff;
             border-radius: 50%;
             width: 36px;
@@ -294,7 +294,7 @@ export default {
           }
           .is-today{
             content: '';
-            background-color: @base-orange;
+            background-color: @base-blue;
             border-radius: 50%;
             opacity: .8;
             width: 12px;
