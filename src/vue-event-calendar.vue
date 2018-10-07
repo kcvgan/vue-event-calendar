@@ -142,6 +142,7 @@ export default {
 </script>
 <style lang="less">
 @base-blue: #85D3F9;
+@other-blue: #6AA9C7;
 @white: #ffffff;
 @gray: #e0e0e0;
 @gray-dark: #b1b1b1;
@@ -321,12 +322,17 @@ export default {
     .date{
       max-width: 60%;
       min-width: 200px;
-      text-align: center;
-      color: @white;
-      background-color: rgba(0, 0, 0, 0.2);
-      border-radius: 20px;
-      margin: 0 auto;
       font-size: 22px;
+      background-color: @other-blue;
+      border: none;
+      color: @white;
+      padding: 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      border-radius: 12px;
     }
     .event-item{
       padding: 5px 20px;
@@ -395,6 +401,31 @@ export default {
     border-right: solid @icon-border-size currentColor;
     -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
+  }
+  .add-event-enabled {
+    background-color: @other-blue;
+    border: none;
+    color: @white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .add-event-disabled {
+    background-color: @gray-dark;
+    border: none;
+    color: @white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 12px;
   }
   h3, p{
     margin: 0;

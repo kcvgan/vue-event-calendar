@@ -1,5 +1,8 @@
 <template>
   <div class="events-wrapper" :style="bgColor">
+    <button :disabled="isDisabled">
+            Add event
+    </button>
     <h2 class="date">
       {{dayEventsTitle}}
     </h2>
@@ -52,11 +55,15 @@ export default {
           return dateTimeFormatter(tempDate, i18n[this.locale].fullFormat)
         } else {
           tempDate = dateTimeFormatter(Date.parse(new Date(this.dayEvents.date)), i18n[this.locale].fullFormat)
+          console.log(tempDate);
           return `${tempDate} ${i18n[this.locale].notHaveEvents}`
         }
       } else {
         return i18n[this.locale].dayEventsTitle
       }
+    },
+    isDisabled () {
+      
     },
     events () {
       return this.dayEvents.events
