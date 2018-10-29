@@ -1,7 +1,7 @@
 <template>
   <div class="events-wrapper" :style="bgColor">
     <button :disabled="isDisabled">
-            Add event
+            {{addEventTitle}}
     </button>
     <h2 class="date">
       {{dayEventsTitle}}
@@ -61,6 +61,9 @@ export default {
       } else {
         return i18n[this.locale].dayEventsTitle
       }
+    },
+    addEventTitle() {
+      return i18n[this.locale].addEventTitle
     },
     isDisabled () {
       

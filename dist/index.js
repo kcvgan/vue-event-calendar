@@ -207,7 +207,8 @@ module.exports = function normalizeComponent (
     format: 'MM/yyyy',
     fullFormat: 'dd/MM/yyyy',
     dayEventsTitle: 'All appointments',
-    notHaveEvents: 'No planned appointments'
+    notHaveEvents: 'No planned appointments',
+    addEventTitle: 'Add'
   },
   pl: {
     dayNames: ["Nd", "Pon", "Wt", "Śr", "Czw", "Pt", "Sb"],
@@ -215,7 +216,8 @@ module.exports = function normalizeComponent (
     format: 'MM/yyyy',
     fullFormat: 'dd/MM/yyyy',
     dayEventsTitle: 'Wszystkie wizyty',
-    notHaveEvents: 'Brak zaplanowanych wizyt'
+    notHaveEvents: 'Brak zaplanowanych wizyt',
+    addEventTitle: 'Dodaj'
   }
 });
 
@@ -340,6 +342,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -380,12 +385,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["b" /* dateTimeFormatter */])(tempDate, __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].fullFormat);
         } else {
           tempDate = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["b" /* dateTimeFormatter */])(Date.parse(new Date(this.dayEvents.date)), __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].fullFormat);
+          console.log(tempDate);
           return tempDate + ' ' + __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].notHaveEvents;
         }
       } else {
         return __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].dayEventsTitle;
       }
     },
+    addEventTitle: function addEventTitle() {
+      return __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].addEventTitle;
+    },
+    isDisabled: function isDisabled() {},
     events: function events() {
       return this.dayEvents.events;
     },
@@ -722,10 +732,10 @@ function install(Vue) {
   var inBrowser = typeof window !== 'undefined';
   var dateObj = new Date();
   var DEFAULT_OPTION = {
-    locale: 'pl', // en
+    locale: 'pl',
     color: '#85D3F9',
     className: 'selected-day',
-    weekStartOn: 0 // 0 mean sunday
+    weekStartOn: 1
   };
   var Calendar = {
     $vm: null,
@@ -888,7 +898,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "events-wrapper",
     style: (_vm.bgColor)
-  }, [_c('h2', {
+  }, [_c('button', {
+    attrs: {
+      "disabled": _vm.isDisabled
+    }
+  }, [_vm._v("\n          " + _vm._s(_vm.addEventTitle) + "\n  ")]), _vm._v(" "), _c('h2', {
     staticClass: "date"
   }, [_vm._v("\n    " + _vm._s(_vm.dayEventsTitle) + "\n  ")]), _vm._v(" "), _c('div', {
     staticClass: "cal-events"
