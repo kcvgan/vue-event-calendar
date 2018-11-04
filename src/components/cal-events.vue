@@ -1,6 +1,6 @@
 <template>
   <div class="events-wrapper" :style="bgColor">
-    <button :disabled="isDisabled">
+    <button @click="addEvent" :disabled="isDisabled">
             {{addEventTitle}}
     </button>
     <h2 class="date">
@@ -76,7 +76,9 @@ export default {
     }
   },
   methods: {
-    dateTimeFormatter
+    addEvent () {
+      this.$emit('addEvent')
+    }
   }
 }
 </script>
