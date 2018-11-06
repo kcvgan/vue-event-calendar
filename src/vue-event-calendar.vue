@@ -5,14 +5,14 @@
       :calendar="calendarOptions"
       :selectedDay='selectedDayEvents.date'
       @cur-day-changed="handleChangeCurDay"
-      @month-changed="handleMonthChanged"
-      @addEvent="handleAddEvent">
+      @month-changed="handleMonthChanged">
     </cal-panel>
     <cal-events
       :title="title"
       :dayEvents="selectedDayEvents"
       :locale="calendarOptions.options.locale"
-      :color="calendarOptions.options.color">
+      :color="calendarOptions.options.color"
+      @addEvent="handleAddEvent">
       <slot :showEvents="selectedDayEvents.events"></slot>
     </cal-events>
   </div>
@@ -113,7 +113,7 @@ export default {
       this.$emit('month-changed', yearMonth)
     },
     handleAddEvent() {
-      this.$emit('addEvent')
+      this.$emit('onAddEvent')
     }
   },
   watch: {
@@ -214,7 +214,7 @@ export default {
     .cal-header{
       position: relative;
       width: 100%;
-      background-color: @white;
+      background-color: transparent;
       // box-shadow: 0 6px 5px rgba(0,0,0,.1);
       font-weight: 500;
       overflow: hidden;

@@ -687,7 +687,7 @@ var inBrowser = typeof window !== 'undefined';
       this.$emit('month-changed', yearMonth);
     },
     handleAddEvent: function handleAddEvent() {
-      this.$emit('addEvent');
+      this.$emit('onAddEvent');
     }
   },
   watch: {
@@ -945,8 +945,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     },
     on: {
       "cur-day-changed": _vm.handleChangeCurDay,
-      "month-changed": _vm.handleMonthChanged,
-      "addEvent": _vm.handleAddEvent
+      "month-changed": _vm.handleMonthChanged
     }
   }), _vm._v(" "), _c('cal-events', {
     attrs: {
@@ -954,6 +953,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "dayEvents": _vm.selectedDayEvents,
       "locale": _vm.calendarOptions.options.locale,
       "color": _vm.calendarOptions.options.color
+    },
+    on: {
+      "addEvent": _vm.handleAddEvent
     }
   }, [_vm._t("default", null, {
     showEvents: _vm.selectedDayEvents.events
