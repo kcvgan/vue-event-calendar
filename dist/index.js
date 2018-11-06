@@ -404,7 +404,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   methods: {
-    dateTimeFormatter: __WEBPACK_IMPORTED_MODULE_1__tools_js__["b" /* dateTimeFormatter */]
+    addEvent: function addEvent() {
+      this.$emit('addEvent');
+    }
   }
 });
 
@@ -486,7 +488,6 @@ var inBrowser = typeof window !== 'undefined';
     dayList: function dayList() {
       var firstDay = new Date(this.calendar.params.curYear, this.calendar.params.curMonth, 1);
       var dayOfWeek = firstDay.getDay();
-      // 根据当前日期计算偏移量 // Calculate the offset based on the current date
       if (this.calendar.options.weekStartOn > dayOfWeek) {
         dayOfWeek = dayOfWeek - this.calendar.options.weekStartOn + 7;
       } else {
@@ -565,6 +566,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_cal_events_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_cal_events_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_cal_panel_vue__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_cal_panel_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_cal_panel_vue__);
+//
 //
 //
 //
@@ -681,6 +683,9 @@ var inBrowser = typeof window !== 'undefined';
     },
     handleMonthChanged: function handleMonthChanged(yearMonth) {
       this.$emit('month-changed', yearMonth);
+    },
+    handleAddEvent: function handleAddEvent() {
+      this.$emit('addEvent');
     }
   },
   watch: {
@@ -901,6 +906,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('button', {
     attrs: {
       "disabled": _vm.isDisabled
+    },
+    on: {
+      "click": _vm.addEvent
     }
   }, [_vm._v("\n          " + _vm._s(_vm.addEventTitle) + "\n  ")]), _vm._v(" "), _c('h2', {
     staticClass: "date"
@@ -935,7 +943,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     },
     on: {
       "cur-day-changed": _vm.handleChangeCurDay,
-      "month-changed": _vm.handleMonthChanged
+      "month-changed": _vm.handleMonthChanged,
+      "addEvent": _vm.handleAddEvent
     }
   }), _vm._v(" "), _c('cal-events', {
     attrs: {
