@@ -345,6 +345,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -386,11 +387,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         } else {
           tempDate = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__tools_js__["b" /* dateTimeFormatter */])(Date.parse(new Date(this.dayEvents.date)), __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].fullFormat);
           console.log(tempDate);
-          return tempDate + ' ' + __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].notHaveEvents;
+          return '' + tempDate;
         }
       } else {
         return __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].dayEventsTitle;
       }
+    },
+    noEvents: function noEvents() {
+      return this.dayEvents.events.length === 0;
     },
     addEventTitle: function addEventTitle() {
       return __WEBPACK_IMPORTED_MODULE_0__i18n_js__["a" /* default */][this.locale].addEventTitle;
@@ -670,12 +674,10 @@ var inBrowser = typeof window !== 'undefined';
       var events = this.events.filter(function (event) {
         return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__tools_js__["a" /* isEqualDateStr */])(event.date, date);
       });
-      if (events.length > 0) {
-        this.selectedDayEvents = {
-          date: date,
-          events: events
-        };
-      }
+      this.selectedDayEvents = {
+        date: date,
+        events: events
+      };
       this.$emit('day-changed', {
         date: date,
         events: events
@@ -914,7 +916,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "date"
   }, [_vm._v("\n    " + _vm._s(_vm.dayEventsTitle) + "\n  ")]), _vm._v(" "), _c('div', {
     staticClass: "cal-events"
-  }, [_vm._t("default", _vm._l((_vm.events), function(event, index) {
+  }, [(_vm.noEvents) ? _c('h1', [_vm._v(_vm._s(_vm.i18n[this.locale].notHaveEvents))]) : _vm._e(), _vm._v(" "), _vm._t("default", _vm._l((_vm.events), function(event, index) {
     return _c('div', {
       key: index,
       staticClass: "event-item"

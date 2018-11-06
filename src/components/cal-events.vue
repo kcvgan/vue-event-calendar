@@ -7,6 +7,7 @@
       {{dayEventsTitle}}
     </h2>
     <div class="cal-events">
+      <h1 v-if="noEvents">{{ i18n[this.locale].notHaveEvents }}</h1>
       <slot>
         <div v-for="(event, index) in events" class="event-item" :key="index">
           <cal-event-item :event="event" :index="index" :locale="locale"></cal-event-item>
@@ -56,11 +57,14 @@ export default {
         } else {
           tempDate = dateTimeFormatter(Date.parse(new Date(this.dayEvents.date)), i18n[this.locale].fullFormat)
           console.log(tempDate);
-          return `${tempDate} ${i18n[this.locale].notHaveEvents}`
+          return `${tempDate}`
         }
       } else {
         return i18n[this.locale].dayEventsTitle
       }
+    },
+    noEvents() {
+        return this.dayEvents.events.length === 0
     },
     addEventTitle() {
       return i18n[this.locale].addEventTitle
