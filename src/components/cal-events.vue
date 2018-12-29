@@ -35,8 +35,6 @@
       :items="events"
       transition-key="id"
       @swipeout:contentclick="contentClick"
-      @swipeout:click="itemClick"
-      @swipeout:doubleclick="itemDblClick"
     >
       <template slot-scope="{ item, index, revealLeft, revealRight, close }">
         <div class="card-content">
@@ -156,21 +154,11 @@ export default {
       this.$emit('edit', item)
     },
     contentClick(e) {
-      this.$emit('eventClick', event.item)
+      this.$emit('eventClick', item)
     },
     itemClick(e) {
       console.log(e, "item click");
     },
-    itemDblClick(e) {
-      console.log(e, "item double click");
-    },
-    fbClick(e) {
-      console.log(e, "First Button Click");
-    },
-    sbClick(e) {
-      console.log(e, "Second Button Click");
-    },
-    // keyboard
     onKeyDown(e) {
       if (e.keyCode !== 16) return;
       this.enabled = false;

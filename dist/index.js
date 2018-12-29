@@ -23665,8 +23665,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -23765,22 +23763,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.$emit('edit', item);
     },
     contentClick: function contentClick(e) {
-      this.$emit('eventClick', event.item);
+      this.$emit('eventClick', item);
     },
     itemClick: function itemClick(e) {
       console.log(e, "item click");
     },
-    itemDblClick: function itemDblClick(e) {
-      console.log(e, "item double click");
-    },
-    fbClick: function fbClick(e) {
-      console.log(e, "First Button Click");
-    },
-    sbClick: function sbClick(e) {
-      console.log(e, "Second Button Click");
-    },
-
-    // keyboard
     onKeyDown: function onKeyDown(e) {
       if (e.keyCode !== 16) return;
       this.enabled = false;
@@ -24081,10 +24068,10 @@ var inBrowser = typeof window !== 'undefined';
       this.$emit('onAddEvent');
     },
     remove: function remove(event) {
-      this.$emit('remove', event.item);
+      this.$emit('remove', event);
     },
     edit: function edit(event) {
-      this.$emit('edit', event.item);
+      this.$emit('edit', event);
     }
   },
   watch: {
@@ -27491,9 +27478,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "transition-key": "id"
     },
     on: {
-      "swipeout:contentclick": _vm.contentClick,
-      "swipeout:click": _vm.itemClick,
-      "swipeout:doubleclick": _vm.itemDblClick
+      "swipeout:contentclick": _vm.contentClick
     },
     scopedSlots: _vm._u([{
       key: "default",
@@ -27586,12 +27571,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     },
     on: {
       "addEvent": _vm.handleAddEvent,
-      "remove": function($event) {
-        _vm.remove(_vm.event)
-      },
-      "edit": function($event) {
-        _vm.edit(_vm.event)
-      }
+      "remove": _vm.remove,
+      "edit": _vm.edit
     }
   }, [_vm._t("default", null, {
     showEvents: _vm.selectedDayEvents.events
