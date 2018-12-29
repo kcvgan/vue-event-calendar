@@ -1,8 +1,11 @@
 'use strict'
 
 import vueEventCalendar from './vue-event-calendar.vue'
+import Vuetify from 'vuetify'
+//import 'vue-swipe-actions/dist/vue-swipe-actions.css';
 
 function install (Vue, options = {}) {
+  Vue.use(Vuetify)
   const isVueNext = Vue.version.split('.')[0] === '2'
   const inBrowser = typeof window !== 'undefined'
   let dateObj = new Date()

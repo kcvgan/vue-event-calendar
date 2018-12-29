@@ -1,13 +1,15 @@
 <template>
-  <div class="wrapper">
-    <h3 class="title">{{index+1}}. {{event.title}}</h3>
-    <p class="time">{{dateTimeFormatter(Date.parse(new Date(event.date)),i18n[locale].fullFormat)}}</p>
-    <p class="desc">{{event.desc}}</p>
+  <div class="wrapper list-item">
+    <div class="item">
+      <h3 class="title">{{event.title}}</h3>
+      <p class="time">{{formatTime(event.time) + dateTimeFormatter(Date.parse(new Date(event.date)),i18n[locale].fullFormat)}}</p>
+      <p class="desc" v-html="event.desc" />
+    </div>
   </div>
 </template>
 <script>
 import i18n from '../i18n.js'
-import { dateTimeFormatter } from '../tools.js'
+import { dateTimeFormatter, formatTime } from '../tools.js'
 export default {
   data () {
     return {
@@ -29,7 +31,11 @@ export default {
     }
   },
   methods: {
-    dateTimeFormatter
+    dateTimeFormatter,
+    formatTime
   }
 }
 </script>
+
+<style>
+</style>

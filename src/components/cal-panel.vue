@@ -2,7 +2,7 @@
   <div class="cal-wrapper">
     <div class="cal-header">
       <div class="l" @click="preMonth"><div class="arrow-left icon">&nbsp;</div></div>
-      <div class="title">{{curYearMonth}}</div>
+      <div class="title" @click="allEvents">{{curYearMonth}}</div>
       <div class="r" @click="nextMonth"><div class="arrow-right icon">&nbsp;</div></div>
     </div>
     <div class="cal-body">
@@ -127,6 +127,9 @@ export default {
       if (date.status) {
         this.$emit('cur-day-changed', date.date)
       }
+    },
+    allEvents () {
+      this.$emit('all-events')
     }
   }
 }
