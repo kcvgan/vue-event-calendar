@@ -24080,11 +24080,11 @@ var inBrowser = typeof window !== 'undefined';
     handleAddEvent: function handleAddEvent() {
       this.$emit('onAddEvent');
     },
-    remove: function remove(item) {
-      this.$emit('remove', item);
+    remove: function remove(event) {
+      this.$emit('remove', event.item);
     },
-    edit: function edit(item) {
-      this.$emit('edit', item);
+    edit: function edit(event) {
+      this.$emit('edit', event.item);
     }
   },
   watch: {
@@ -27587,10 +27587,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "addEvent": _vm.handleAddEvent,
       "remove": function($event) {
-        _vm.remove(_vm.item)
+        _vm.remove(_vm.event)
       },
       "edit": function($event) {
-        _vm.edit(_vm.item)
+        _vm.edit(_vm.event)
       }
     }
   }, [_vm._t("default", null, {

@@ -14,8 +14,8 @@
       :locale="calendarOptions.options.locale"
       :color="calendarOptions.options.color"
       @addEvent="handleAddEvent"
-      @remove="remove(item)"
-      @edit="edit(item)">
+      @remove="remove(event)"
+      @edit="edit(event)">
       <slot :showEvents="selectedDayEvents.events"></slot>
     </cal-events>
   </div>
@@ -125,11 +125,11 @@ export default {
     handleAddEvent() {
       this.$emit('onAddEvent')
     },
-    remove(item) {
-      this.$emit('remove', item)
+    remove(event) {
+      this.$emit('remove', event.item)
     },
-    edit(item) {
-      this.$emit('edit', item)
+    edit(event) {
+      this.$emit('edit', event.item)
     }
   },
   watch: {
