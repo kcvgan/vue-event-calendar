@@ -263,5 +263,6 @@ export default {
 }
 .card-content {
   padding: 1rem;
+  color: black !important;
 }
 </style>
