@@ -2,6 +2,7 @@
 
 import vueEventCalendar from './vue-event-calendar.vue'
 import Vuetify from 'vuetify'
+//import 'vue-swipe-actions/dist/vue-swipe-actions.css';
 
 function install (Vue, options = {}) {
   Vue.use(Vuetify)

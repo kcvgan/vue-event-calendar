@@ -5,7 +5,10 @@
       :calendar="calendarOptions"
       :selectedDay='selectedDayEvents.date'
       @cur-day-changed="handleChangeCurDay"
-      @month-changed="handleMonthChanged">
+      @month-changed="handleMonthChanged"
+      @all-events="handleShowAllEvents"
+      @removeEvent="removeEvent(item)"
+      @editEvent="editEvent(item)">
     </cal-panel>
     <cal-events
       :title="title"
@@ -109,11 +112,24 @@ export default {
         events: events
       })
     },
+    handleShowAllEvents () {
+      this.selectedDayEvents = {
+        date: 'all',
+        events: this.events,
+      }
+      this.$emit('show-all-events', this.selectedDayEvents)
+    },
     handleMonthChanged (yearMonth) {
       this.$emit('month-changed', yearMonth)
     },
     handleAddEvent() {
       this.$emit('onAddEvent')
+    },
+    removeEvent(item) {
+      this.$emit('removeEvent', item)
+    },
+    editEvent(item) {
+      this.$emit('editEvent', item)
     }
   },
   watch: {

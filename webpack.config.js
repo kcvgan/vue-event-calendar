@@ -16,7 +16,7 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-
+            scss: 'style-loader!css-loader!sass-loader'
           }
         }
       },
@@ -36,6 +36,14 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   },
@@ -68,6 +76,10 @@ if (process.env.NODE_ENV === 'production') {
     }),
     less: ExtractTextPlugin.extract({
       use: 'css-loader!less-loader',
+      fallback: 'vue-style-loader'
+    }),
+    scss: ExtractTextPlugin.extract({
+      use: 'css-loader!sass-loader',
       fallback: 'vue-style-loader'
     })
   }
