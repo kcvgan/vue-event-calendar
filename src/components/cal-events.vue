@@ -43,11 +43,11 @@
           <p>{{ item.desc }}</p>
         </div>
       </template>
-      <template slot="right" slot-scope="{ item }">
+      <template slot="right" slot-scope="{ item, close }">
         <div class="swipeout-action" style="background-color: #6AA9C7; color: white;" @click="edit(item)">
           <i class="fa fa-edit fa-2x"></i>
         </div>
-        <div class="swipeout-action red" @click="remove(item)">
+        <div class="swipeout-action red" @click="remove(item, close)">
           <i class="fa fa-trash fa-2x"></i>
         </div>
       </template>
@@ -147,7 +147,8 @@ export default {
       }
     },
     formatTime,
-    remove(item) {
+    remove(item, close) {
+      close()
       this.$emit('remove', item)
     },
     edit(item) {

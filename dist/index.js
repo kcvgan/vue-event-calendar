@@ -23756,7 +23756,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     formatTime: __WEBPACK_IMPORTED_MODULE_1__tools_js__["c" /* formatTime */],
-    remove: function remove(item) {
+    remove: function remove(item, close) {
+      close();
       this.$emit('remove', item);
     },
     edit: function edit(item) {
@@ -27505,6 +27506,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       key: "right",
       fn: function(ref) {
         var item = ref.item;
+        var close = ref.close;
 
         return [_c('div', {
           staticClass: "swipeout-action",
@@ -27523,7 +27525,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           staticClass: "swipeout-action red",
           on: {
             "click": function($event) {
-              _vm.remove(item)
+              _vm.remove(item, close)
             }
           }
         }, [_c('i', {
