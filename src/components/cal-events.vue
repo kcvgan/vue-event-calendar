@@ -198,7 +198,7 @@ export default {
 }
 
 .events-title {
-  margin-left: 40px;
+  margin-left: 20px;
   line-height: 68px;
   font-size: 30px;
   font-weight: bold;
