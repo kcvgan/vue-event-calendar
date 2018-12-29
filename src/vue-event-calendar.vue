@@ -6,16 +6,16 @@
       :selectedDay='selectedDayEvents.date'
       @cur-day-changed="handleChangeCurDay"
       @month-changed="handleMonthChanged"
-      @all-events="handleShowAllEvents"
-      @removeEvent="removeEvent(item)"
-      @editEvent="editEvent(item)">
+      @all-events="handleShowAllEvents">
     </cal-panel>
     <cal-events
       :title="title"
       :dayEvents="selectedDayEvents"
       :locale="calendarOptions.options.locale"
       :color="calendarOptions.options.color"
-      @addEvent="handleAddEvent">
+      @addEvent="handleAddEvent"
+      @removeEvent="remove(item)"
+      @editEvent="edit(item)">
       <slot :showEvents="selectedDayEvents.events"></slot>
     </cal-events>
   </div>
@@ -126,10 +126,10 @@ export default {
       this.$emit('onAddEvent')
     },
     removeEvent(item) {
-      this.$emit('removeEvent', item)
+      this.$emit('remove', item)
     },
     editEvent(item) {
-      this.$emit('editEvent', item)
+      this.$emit('edit', item)
     }
   },
   watch: {

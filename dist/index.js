@@ -24081,10 +24081,10 @@ var inBrowser = typeof window !== 'undefined';
       this.$emit('onAddEvent');
     },
     removeEvent: function removeEvent(item) {
-      this.$emit('removeEvent', item);
+      this.$emit('remove', item);
     },
     editEvent: function editEvent(item) {
-      this.$emit('editEvent', item);
+      this.$emit('edit', item);
     }
   },
   watch: {
@@ -27575,13 +27575,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "cur-day-changed": _vm.handleChangeCurDay,
       "month-changed": _vm.handleMonthChanged,
-      "all-events": _vm.handleShowAllEvents,
-      "removeEvent": function($event) {
-        _vm.removeEvent(_vm.item)
-      },
-      "editEvent": function($event) {
-        _vm.editEvent(_vm.item)
-      }
+      "all-events": _vm.handleShowAllEvents
     }
   }), _vm._v(" "), _c('cal-events', {
     attrs: {
@@ -27591,7 +27585,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "color": _vm.calendarOptions.options.color
     },
     on: {
-      "addEvent": _vm.handleAddEvent
+      "addEvent": _vm.handleAddEvent,
+      "removeEvent": function($event) {
+        _vm.remove(_vm.item)
+      },
+      "editEvent": function($event) {
+        _vm.edit(_vm.item)
+      }
     }
   }, [_vm._t("default", null, {
     showEvents: _vm.selectedDayEvents.events
