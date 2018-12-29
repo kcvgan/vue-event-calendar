@@ -150,10 +150,10 @@ export default {
     },
     formatTime,
     remove(item) {
-      this.$emit('removeEvent', item)
+      this.$emit('remove', item)
     },
     edit(item) {
-      this.$emit('editEvent', item)
+      this.$emit('edit', item)
     },
     contentClick(e) {
       this.$emit('eventClick', event.item)

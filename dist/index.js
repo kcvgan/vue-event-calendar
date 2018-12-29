@@ -23759,10 +23759,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     formatTime: __WEBPACK_IMPORTED_MODULE_1__tools_js__["c" /* formatTime */],
     remove: function remove(item) {
-      this.$emit('removeEvent', item);
+      this.$emit('remove', item);
     },
     edit: function edit(item) {
-      this.$emit('editEvent', item);
+      this.$emit('edit', item);
     },
     contentClick: function contentClick(e) {
       this.$emit('eventClick', event.item);
@@ -24080,10 +24080,10 @@ var inBrowser = typeof window !== 'undefined';
     handleAddEvent: function handleAddEvent() {
       this.$emit('onAddEvent');
     },
-    removeEvent: function removeEvent(item) {
+    remove: function remove(item) {
       this.$emit('remove', item);
     },
-    editEvent: function editEvent(item) {
+    edit: function edit(item) {
       this.$emit('edit', item);
     }
   },
@@ -27586,10 +27586,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     },
     on: {
       "addEvent": _vm.handleAddEvent,
-      "removeEvent": function($event) {
+      "remove": function($event) {
         _vm.remove(_vm.item)
       },
-      "editEvent": function($event) {
+      "edit": function($event) {
         _vm.edit(_vm.item)
       }
     }
