@@ -16,8 +16,9 @@ export default {
     return {
       demoEvents: [{
         date: `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`,
-        title: 'Title-1',
-        desc: 'longlonglong description'
+        time: '13:30',
+        title: 'Jan Kowalski',
+        desc: 'somedesc'
       },{
         date: `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`,
         title: 'Title-1',
@@ -31,6 +32,21 @@ export default {
         title: 'Title-1',
         desc: 'longlonglong description'
       },{
+        date: `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`,
+        title: 'Title-1',
+        desc: 'longlonglong description'
+      },
+      {
+        date: `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`,
+        title: 'Title-1',
+        desc: 'longlonglong description'
+      },
+      {
+        date: `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`,
+        title: 'Title-1',
+        desc: 'longlonglong description'
+      },
+      {
         date: `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`,
         title: 'Title-1',
         desc: 'longlonglong description'
