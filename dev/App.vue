@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <h1>Kalendarz wizyt</h1>
-    <h2 class="t-center">Default template</h2>
     <vue-event-calendar
       :events="demoEvents"
       @day-changed="handleDayChanged"

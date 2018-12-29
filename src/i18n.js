@@ -6,7 +6,8 @@ export default {
     fullFormat: 'dd/MM/yyyy',
     dayEventsTitle: 'All appointments',
     notHaveEvents: 'No planned appointments',
-    addEventTitle: 'Add'
+    addEventTitle: 'Add',
+    noDayAlert: 'Pick a day'
   },
   pl: {
     dayNames: ["Nd", "Pon", "Wt", "Śr", "Czw", "Pt", "Sb"],
@@ -15,6 +16,7 @@ export default {
     fullFormat: 'dd/MM/yyyy',
     dayEventsTitle: 'Wszystkie wizyty',
     notHaveEvents: 'Brak zaplanowanych wizyt',
-    addEventTitle: 'Dodaj'
+    addEventTitle: 'Dodaj',
+    noDayAlert: 'Wybierz dzień'
   }
 }

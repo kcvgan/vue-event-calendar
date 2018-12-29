@@ -322,6 +322,7 @@ export default {
       margin: 15px 0;
     }
     .date{
+      height: 56px;
       max-width: 60%;
       min-width: 200px;
       font-size: 22px;
@@ -333,7 +334,7 @@ export default {
       text-decoration: none;
       display: inline-block;
       font-size: 16px;
-      margin: 4px 2px;
+      margin: auto;
       border-radius: 12px;
     }
     .event-item{

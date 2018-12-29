@@ -1,11 +1,25 @@
 <template>
   <div class="events-wrapper" :style="bgColor">
-    <button @click="addEvent" :disabled="isDisabled">
-            {{addEventTitle}}
-    </button>
-    <h2 class="date">
-      {{dayEventsTitle}}
-    </h2>
+    <v-alert
+        :value="isAlert"
+        color="error"
+        style="background-color: red !important;"
+        icon="warning"
+        transition="scale-transition"
+      >
+      {{ i18n[this.locale].noDayAlert }}
+    </v-alert>
+    <div class="event-panel-header">
+      <span class="events-title">{{dayEventsTitle}}</span>
+      <v-btn fab dark 
+              color="#6AA9C7" 
+              depressed 
+              class="btn-add-events"
+              @click="addEvent"
+              :disabled="isDisabled">
+        <v-icon>add</v-icon>
+      </v-btn>
+    </div>
     <div class="cal-events">
       <h1 v-if="noEvents">{{ i18n[this.locale].notHaveEvents }}</h1>
       <slot>
@@ -25,7 +39,8 @@ export default {
   name: 'cal-events',
   data () {
     return {
-      i18n
+      isAlert: false,
+      i18n,
     }
   },
   components: {
@@ -50,6 +65,7 @@ export default {
     dayEventsTitle () {
       if (this.title) return this.title
       if (this.dayEvents.date !== 'all') {
+        this.isAlert = false
         let tempDate
         if (this.dayEvents.events.length !== 0) {
           tempDate = Date.parse(new Date(this.dayEvents.events[0].date))
@@ -81,8 +97,33 @@ export default {
   },
   methods: {
     addEvent () {
-      this.$emit('addEvent')
+      if(this.dayEvents.date === 'all') {
+        this.isAlert = true
+      } else {
+        this.$emit('addEvent')
+        this.isAlert = false
+      }
     }
   }
 }
 </script>
+
+<style>
+.event-panel-header {
+  text-align: center;
+  overflow: hidden;
+}
+
+.btn-add-events {
+  float: right;
+}
+
+.events-title {
+  margin-left: 40px;
+  line-height: 68px;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+
+</style>
