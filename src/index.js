@@ -4,6 +4,7 @@ import vueEventCalendar from './vue-event-calendar.vue'
 import Vuetify from 'vuetify'
 
 function install (Vue, options = {}) {
+  Vue.use(Vuetify)
   const isVueNext = Vue.version.split('.')[0] === '2'
   const inBrowser = typeof window !== 'undefined'
   let dateObj = new Date()
@@ -79,7 +80,6 @@ function install (Vue, options = {}) {
   }
 
   Vue.component('vue-event-calendar', vueEventCalendar)
-  Vue.use(Vuetify)
 
   Vue.prototype.$EventCalendar = Calendar
 }

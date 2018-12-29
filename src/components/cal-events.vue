@@ -11,7 +11,8 @@
     </v-alert>
     <div class="event-panel-header">
       <span class="events-title">{{dayEventsTitle}}</span>
-      <v-btn fab dark 
+      <v-btn  fab
+              dark 
               color="#6AA9C7" 
               depressed 
               class="btn-add-events"
